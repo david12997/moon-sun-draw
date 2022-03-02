@@ -1,0 +1,15 @@
+{
+  "name": "moon-sun",
+  "version": "1.0.0",
+  "description": "Moon and Sun interactive animation using html, javascript, css and sass",
+  "main": "index.html",
+  "scripts": {
+    "sass": "sass --watch scss/styles.scss:public/styles.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.49.9"
+  }
+}

@@ -1,0 +1,14 @@
+$BackgroundSky: '--moon'#0f1927,'--sun'linear-gradient(#da5903, #ffe602);
+$elementSky: '__star' 5px 5px,'__cloud' 60px 60px;
+
+$colorObjGlowMoon:white,#ffffff7e;
+$colorObjGlowSun:rgb(255, 166, 0),rgba(255, 162, 76, 0.726);
+
+$main_object:'__glow' 300px 300px 50%, '__obj' 260px 260px 50%;
+$main_glow_modifier:'__glow--moon' white $colorObjGlowMoon,'__glow--sun'rgb(255, 196, 0) $colorObjGlowSun;
+
+$main_obj_modifier: '__obj--moon'white -15% 5% white, 
+                    '__obj--sun' radial-gradient(closest-side,rgb(255, 115, 0),rgb(255, 98, 50)) -15% 5% rgb(255, 0, 0);
+
+$ocean_modifier:'--moon' linear-gradient(90deg, rgb(0, 52, 93) 25% , rgb(96, 118, 131) 52%,rgb(0, 52, 93) 95%), 
+                '--sun' linear-gradient(90deg, rgb(1, 104, 151) 15% , rgb(175, 87, 15) 52%,rgb(1, 104, 151) 100%);

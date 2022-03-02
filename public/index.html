@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon-Sun</title>
+
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    
+    
+    <select class="Modifier" id="state" name="state" >
+        <option value="moon">Moon</option>
+        <option value="sun">Sun</option>
+    </select>
+  
+    <div class="switch">
+        <span class="switch__title"><b>Moon/Sun simulation</b></span>
+        <div class="switch__container">
+            <div id="body-switch" class="switch__body">
+                <div id="pointer" class="switch__pointer"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <!--Sky background-->
+        <div id="sky" class="backgroundSky backgroundSky--moon">
+        </div>
+
+        <!-- sun moon -->
+        <div class="mainSkyObj">
+            <div id="glow" class="mainSkyObj__glow mainSkyObj__glow--moon"></div>
+            <div id="main-obj" class="mainSkyObj__obj mainSkyObj__obj--moon"></div>
+        </div>
+
+        <!-- ocean-->
+        <div  id="the-ocean" class="ocean ocean--sun">
+            <div  class="ocean__containerReflect">
+                <div class="ocean__reflect ocean__reflect--moon"></div>
+                <div class="ocean__reflect ocean__reflect--moon"></div>
+                <div class="ocean__reflect ocean__reflect--moon"></div>
+                <div class="ocean__reflect ocean__reflect--moon"></div>
+            </div>
+
+        </div>
+
+        
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>

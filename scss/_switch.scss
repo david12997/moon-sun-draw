@@ -1,0 +1,70 @@
+$swi:'switch';
+
+.#{$swi}{
+    width: 200px;
+    height: 120px;
+    background: rgba(0, 0, 0, 0.52);
+    position: absolute;
+    z-index: 9999;
+    margin: 5px;
+    border-radius: 10px;
+
+}
+
+@mixin center{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.#{$swi}__title{
+
+    color: white;
+    @include center();
+    padding: 5px;
+    margin: 5px;
+    font-size: 17px;
+}
+.#{$swi}__container{
+
+    @include center();
+    width:100%;
+    height: 60%;
+    
+}
+.#{$swi}__body{
+
+    position: relative;
+    width: 50%;
+    height: 40px;
+    background: #00345d;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 20px;
+    
+}
+.#{$swi}__pointer{
+
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    position: absolute;
+    left:5px;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in;
+
+}
+
+@keyframes move_pointer_sun{
+
+    0%{left:5px}
+    100%{left:65px}
+}
+
+@keyframes move_pointer_moon{
+
+    0%{left:65px}
+    100%{left:5px}
+}

@@ -1,0 +1,127 @@
+$obj:'mainSkyObj';
+
+.#{$obj}{
+
+    width: 99.4vw;
+    height: 99.4vh;
+    position: absolute;
+    z-index: 99;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+@mixin main_obj( $element, $width,$height,$border){
+
+    .#{$obj}#{$element}{
+
+        width: #{$width};
+        height: #{$height};
+        border-radius: #{$border};
+
+        @if $element == '__glow'{
+
+            margin-top: -15%;
+            margin-left: 5%;
+            animation-name: obj_main;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        
+        }@else{ position: absolute; }
+
+    }
+
+}
+
+@mixin main_glow_modifier($modifier,$colorshadow,$colorbackground){
+
+    .#{$obj}#{$modifier}{
+
+        background: radial-gradient(closest-side,#{nth($colorbackground,1)},nth($colorbackground,2));
+        box-shadow: 0px 0px 55px #{$colorshadow};
+    }
+}
+
+@mixin main_obj_modifier($modifier,$background,$mTop,$mLeft,$colorshadow){
+
+    .#{$obj}#{$modifier}{
+
+        background: #{$background};
+        margin-top: #{$mTop};
+        margin-left: #{$mLeft};
+
+        @if $modifier == '__obj--moon'{
+
+            box-shadow: 0px 0px 55px #{$colorshadow}, inset 20px 0px 30px rgba(0, 0, 0, 0.835);
+
+        }@else{
+
+            box-shadow: 0px 0px 55px #{$colorshadow},inset 30px 0px 30px rgba(179, 1, 1, 0.678),
+                        inset -10px 0px 30px rgb(248, 187, 108);
+        }
+    }
+}
+
+
+
+
+@each $element,$width,$height,$border in $main_object {
+    
+    @include main_obj($element,$width ,$height ,$border );
+}
+
+@each $modifier,$colorshadow,$colorbackground in $main_glow_modifier {
+    
+    @include main_glow_modifier($modifier,$colorshadow ,$colorbackground);
+}
+
+@each $modifier,$background,$mTop, $mLeft, $colorshadow in $main_obj_modifier {
+    
+    @include main_obj_modifier($modifier,$background ,$mTop,$mLeft,$colorshadow);
+}
+
+@keyframes obj_main {
+    
+    0%{ transform: scale(0.8,0.8);}
+    50%{ transform: scale(1,1);}
+    100%{ transform: scale(0.8,0.8);}
+    
+}
+
+@mixin crater($width,$height,$top,$left){
+
+    width:#{$width};
+    height: #{$height};
+    top: #{$top};
+    left:#{$left};
+}
+
+@for $i from 1 to 4 {
+    
+    .#{$obj}__craterMoon:nth-child(#{$i}){
+
+        @if $i == 1{
+
+            @include crater(50px,50px ,170px ,105px);
+        }
+
+        @if $i == 2{
+            
+            @include crater(40px,40px ,90px ,185px);
+        }
+
+        @if $i == 3{
+            
+            @include crater(35px,35px ,40px ,90px);
+        }
+
+        background-color: rgba(192, 192, 192, 0.575);
+        border-radius: 50%;
+        position: absolute;
+        box-shadow: inset -5px 0px 10px rgba(0, 0, 0, 0.568);
+    }
+}
+

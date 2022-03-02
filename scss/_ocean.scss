@@ -1,0 +1,140 @@
+$ocean:'ocean';
+
+.#{$ocean}{
+
+    width: 100%;
+    height: 55%;
+    position: absolute;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    top: 55%;
+    
+}
+
+@mixin ocean_animate($name){
+
+    animation-name: #{$name};
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.#{$ocean}__containerReflect{
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    @include ocean_animate(reflect2);
+    background-color: transparent;
+}
+
+@mixin modifier_ocean($modifier,$background) {
+    
+    .#{$ocean}#{$modifier}{
+
+        background: $background;
+    }
+
+}
+
+@each $modifier, $background in $ocean_modifier {
+    
+    @include modifier_ocean($modifier,$background );
+}
+
+.#{$ocean}__reflect{
+
+    position: absolute;
+    margin-left: 5%;
+    border-radius: 50%;
+    @include ocean_animate(reflect);
+
+}
+
+@mixin reflect_child($width,$height,$mTop){
+
+    width: #{$width};
+    height: #{$height};
+    margin-top: #{$mTop};
+}
+
+@for $i from 1 to 5 {
+
+    .#{$ocean}__reflect:nth-child(#{$i}){
+
+        @if $i == 1{ @include reflect_child(250px,30px ,0% ); }
+        @if $i == 2{ @include reflect_child(200px,30px ,8% ); }
+        @if $i == 3{ @include reflect_child(150px,30px ,16% ); }
+        @if $i == 4{ @include reflect_child(100px,20px ,25% );}
+    }
+}
+
+@media(min-width:500px){
+
+    @for $i from 1 to 5 {
+
+        .#{$ocean}__reflect:nth-child(#{$i}){
+    
+            
+            @if $i == 1{ @include reflect_child(250px,30px ,0% ); }
+            @if $i == 2{ @include reflect_child(200px,30px ,6% ); }
+            @if $i == 3{ @include reflect_child(150px,30px ,12% ); }
+            @if $i == 4{ @include reflect_child(100px,20px ,20% );}
+
+        }
+    }
+    
+    
+}
+
+@media(min-width:800px){
+
+    @for $i from 1 to 5 {
+
+        .#{$ocean}__reflect:nth-child(#{$i}){
+            
+            @if $i == 1{ @include reflect_child(250px,30px ,0% ); }
+            @if $i == 2{ @include reflect_child(200px,30px ,2% ); }
+            @if $i == 3{ @include reflect_child(150px,30px ,4% ); }
+            @if $i == 4{ @include reflect_child(100px,20px ,7% ); }
+
+        }
+    }
+}
+
+.#{$ocean}__reflect--moon{
+
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px white, 
+                0px 0px 20px white,
+                0px 0px 40px white;
+}
+.#{$ocean}__reflect--sun{
+
+    background: rgb(253, 122, 0);
+    box-shadow: 0px 0px 10px rgb(253, 122, 0), 
+                0px 0px 20px rgb(253, 122, 0), 
+                0px 30px 30px rgba(1, 103, 151, 0.198),
+                0px 0px 40px rgb(253, 122, 0);
+}
+
+@keyframes reflect {
+    
+    0%{ transform: scaleY(1);}
+    25%{ transform: scaleY(1.3);}
+    50%{ transform: scaleY(1.6);}
+    75%{ transform: scaleY(1.3);}
+    100%{ transform: scaleY(1);}
+}
+
+@keyframes reflect2 {
+    
+    0%{ transform:  translateY(1px);}
+    25%{ transform:  translateY(4px);}
+    50%{ transform:  translateY(8px);}
+    75%{ transform:  translateY(4px);}
+    100%{ transform:  translateY(1px);}
+}
