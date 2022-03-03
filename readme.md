@@ -1,10 +1,8 @@
 # Moon Sun simulation 
  
- Watch live :
 
-## Overview
 ### _Moon sun Draw 100% responsive, styles made with sass and following the BEM methodology_  
-
+ Watch live :
 
 
 ## Desktop
